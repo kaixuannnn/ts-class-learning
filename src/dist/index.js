@@ -1,14 +1,22 @@
 "use strict";
-// let person = {
-// }
-// person.name = 'a'
-/** in this case, this throw an error, as you know typescript is very strict on it object pattern,
- * therefore, we can use index signatures
- */
-class SeatAssigment {
+class Ride {
+    start() {
+        Ride.activeRides++;
+    }
+    stop() {
+        Ride.activeRides--;
+    }
 }
-let seats = new SeatAssigment();
-seats.A1 = 'Kai';
-seats.A2 = 'Xuan';
-seats['A3'] = 'Tan';
+Ride.activeRides = 0;
+let ride1 = new Ride();
+ride1.start();
+let ride2 = new Ride();
+ride2.start();
+console.log(Ride.activeRides);
+//1
+//1
+/**As you can see the results, it is 1 respectively,
+ * it is because the memories is belong to the each object independently.
+ * However, we need a share memory belongs to a class, so we use StaticMembers
+ */
 //# sourceMappingURL=index.js.map

@@ -1,16 +1,29 @@
-// let person = {
-// }
+class Ride {
+  private static _activeRides: number = 0
 
-// person.name = 'a'
-/** in this case, this throw an error, as you know typescript is very strict on it object pattern,
- * therefore, we can use index signatures
- */
+  start() {
+    Ride._activeRides++
+  }
 
-class SeatAssigment {
-  [seatNumber: string]: string
+  stop() {
+    Ride._activeRides--
+  }
+
+  static get activeRides() {
+    return Ride._activeRides
+  }
 }
 
-let seats = new SeatAssigment()
-seats.A1 = 'Kai'
-seats.A2 = 'Xuan'
-seats['A3'] = 'Tan'
+let ride1 = new Ride()
+ride1.start()
+
+let ride2 = new Ride()
+ride2.start()
+
+console.log(Ride.activeRides)
+//1
+//1
+/**As you can see the results, it is 1 respectively,
+ * it is because the memories is belong to the each object independently.
+ * However, we need a share memory belongs to a class, so we use StaticMembers
+ */

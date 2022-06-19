@@ -1,43 +1,16 @@
-//private - can be only modified inside the class
-//public - by default, all field and methods are public
-/** You can see the field and constructor argv are repetitive, so we can do it in another way */
-class Account {
-  nickname?: string
+// let person = {
+// }
 
-  constructor(
-    public readonly id: number,
-    public owner: string,
-    private _balance: number
-  ) {}
+// person.name = 'a'
+/** in this case, this throw an error, as you know typescript is very strict on it object pattern,
+ * therefore, we can use index signatures
+ */
 
-  deposit(amount: number): void {
-    if (amount <= 0) throw new Error()
-    this._balance += amount
-  }
-  //you can set pribvate to a method too
-  private calculateTax(): void {}
-
-  get balance(): number {
-    return this._balance
-  }
-
-  set balance(value: number) {
-    this._balance = value
-  }
+class SeatAssigment {
+  [seatNumber: string]: string
 }
 
-let account = new Account(1, 'Kai', 2)
-account.deposit(100)
-// Now the account.balance cannot retrieved from outside
-// console.log(account.balance)
-
-//when we want to narrow down class object instead of using type of , we use instance of
-// because typeof will always return object
-console.log(typeof account)
-console.log(account instanceof Account)
-
-//getter
-console.log(account.balance)
-
-//setter
-account.balance = 2
+let seats = new SeatAssigment()
+seats.A1 = 'Kai'
+seats.A2 = 'Xuan'
+seats['A3'] = 'Tan'

@@ -1,18 +1,14 @@
 "use strict";
-class Account {
-    constructor(id, owner, balance) {
-        this.id = id;
-        this.owner = owner;
-        this.balance = balance;
-    }
-    deposit(amount) {
-        if (amount <= 0)
-            throw new Error();
-        this.balance += amount;
-    }
+// let person = {
+// }
+// person.name = 'a'
+/** in this case, this throw an error, as you know typescript is very strict on it object pattern,
+ * therefore, we can use index signatures
+ */
+class SeatAssigment {
 }
-let account = new Account(1, 'Kai', 2);
-account.deposit(100);
-console.log(account.balance);
-console.log(typeof account);
+let seats = new SeatAssigment();
+seats.A1 = 'Kai';
+seats.A2 = 'Xuan';
+seats['A3'] = 'Tan';
 //# sourceMappingURL=index.js.map

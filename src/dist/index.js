@@ -7,6 +7,7 @@ class Person {
     get fullName() {
         return this.firstName + ' ' + this.lastName;
     }
+    /** difference between protected and private is protected can be used in inheritant, private cannot */
     walk() {
         console.log('walkinggggg...');
     }
@@ -17,6 +18,7 @@ class Student extends Person {
         this.studentId = studentId;
     }
     takeTest() {
+        this.walk();
         console.log('taking test.....');
     }
 }

@@ -17,8 +17,12 @@ class Account {
   //you can set pribvate to a method too
   private calculateTax(): void {}
 
-  getBalance(): number {
+  get balance(): number {
     return this._balance
+  }
+
+  set balance(value: number) {
+    this._balance = value
   }
 }
 
@@ -31,3 +35,9 @@ account.deposit(100)
 // because typeof will always return object
 console.log(typeof account)
 console.log(account instanceof Account)
+
+//getter
+console.log(account.balance)
+
+//setter
+account.balance = 2

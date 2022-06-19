@@ -1,41 +1,23 @@
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+abstract class Shape {
+  constructor(public color: string) {}
 
-  get fullName() {
-    return this.firstName + ' ' + this.lastName
+  /** abstract method can only be used in abstract class */
+  abstract render(): void
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color)
   }
-  /** difference between protected and private is protected can be used in inheritant, private cannot */
-  protected walk() {
-    console.log('walkinggggg...')
+
+  override render(): void {
+    console.log('Rendering a circle...')
   }
 }
 
-class Student extends Person {
-  constructor(public studentId: number, firstName: string, lastName: string) {
-    super(firstName, lastName)
-  }
-
-  takeTest() {
-    this.walk()
-    console.log('taking test.....')
-  }
-}
-
-class Teacher extends Person {
-  /** We can also do this w/o the override, but it will influence the base method
-   * we can enable the "noImplicitOverride" to true, so intellisense will remind us
-   */
-  override get fullName() {
-    return 'Professor' + ' ' + super.fullName
-  }
-
-  override walk(): void {
-    console.log('Professor is walking..')
-  }
-}
-
-function printNames(people: Person[]) {
-  for (let person of people) console.log(person.fullName)
-}
-
-printNames([new Student(1, 'Kai Xuan', 'Tan'), new Teacher('Jess', 'Call')])
+/** In this case, we dont want to render a shape , as it is illogical
+ * so we use abstract class, abstract class is meant to be used for draft and simple class,
+ * which can not be initiated
+ */
+// let shape = new Shape('red');
+// shape.render()

@@ -32,3 +32,9 @@ class Teacher extends Person {
     console.log('Professor is walking..')
   }
 }
+
+function printNames(people: Person[]) {
+  for (let person of people) console.log(person.fullName)
+}
+
+printNames([new Student(1, 'Kai Xuan', 'Tan'), new Teacher('Jess', 'Call')])

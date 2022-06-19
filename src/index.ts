@@ -1,29 +1,24 @@
-class Ride {
-  private static _activeRides: number = 0
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-  start() {
-    Ride._activeRides++
+  get fullName() {
+    return this.firstName + ' ' + this.lastName
   }
 
-  stop() {
-    Ride._activeRides--
-  }
-
-  static get activeRides() {
-    return Ride._activeRides
+  walk() {
+    console.log('walkinggggg...')
   }
 }
 
-let ride1 = new Ride()
-ride1.start()
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName)
+  }
 
-let ride2 = new Ride()
-ride2.start()
+  takeTest() {
+    console.log('taking test.....')
+  }
+}
 
-console.log(Ride.activeRides)
-//1
-//1
-/**As you can see the results, it is 1 respectively,
- * it is because the memories is belong to the each object independently.
- * However, we need a share memory belongs to a class, so we use StaticMembers
- */
+const kaixuan = new Student(1, 'kai', 'xuan')
+console.log(kaixuan.takeTest())

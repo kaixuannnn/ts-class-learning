@@ -1,26 +1,7 @@
-// abstract class Calender {
-//   constructor(public name: String) {}
-//   abstract addEvent(): void
-//   abstract removeEvent(): void
-// }
-
-interface Calender {
-  name: string
-  addEvent(): void
-  removeEvent(): void
+class KeyValuePair<K, V> {
+  constructor(public key: K, public value: V) {}
 }
 
-//inheritance
-interface CloudCalender extends Calender {
-  sync(): void
-}
+let pair = new KeyValuePair(1, 'a')
 
-class GoogleCalender implements Calender {
-  constructor(public name: string) {}
-  addEvent(): void {
-    throw new Error('Method not implemented.')
-  }
-  removeEvent(): void {
-    throw new Error('Method not implemented.')
-  }
-}
+let other = new KeyValuePair<string, string>('a', 'b')

@@ -1,20 +1,27 @@
-interface Result<T> {
-  data: T | null
-  error: string | null
+// interface constraint
+// interface Person {
+//   name: string
+// }
+// interface Ran<T> {
+//   hi: T
+//   jess: string
+// }
+
+// function echo<T extends Person>(value: T): Ran<T> {
+//   return { hi: value, jess: 'hi' }
+// }
+
+/** Constraint by Class */
+
+class Person {
+  constructor(public name: string) {}
 }
 
-function fetch<T>(url: string): Result<T> {
-  return { data: null, error: null }
+class Customer extends Person {}
+
+function echo<T extends Person>(value: T): T {
+  console.log(value)
+  return value
 }
 
-interface User {
-  username: string
-}
-
-interface Product {
-  title: string
-}
-
-const result = fetch<User>('url')
-
-result.data?.username
+echo(new Customer('hihihi'))

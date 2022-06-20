@@ -1,8 +1,26 @@
 "use strict";
-var _a;
-function fetch(url) {
-    return { data: null, error: null };
+// interface constraint
+// interface Person {
+//   name: string
+// }
+// interface Ran<T> {
+//   hi: T
+//   jess: string
+// }
+// function echo<T extends Person>(value: T): Ran<T> {
+//   return { hi: value, jess: 'hi' }
+// }
+/** Constraint by Class */
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
 }
-const result = fetch('url');
-(_a = result.data) === null || _a === void 0 ? void 0 : _a.username;
+class Customer extends Person {
+}
+function echo(value) {
+    console.log(value);
+    return value;
+}
+echo(new Customer('hihihi'));
 //# sourceMappingURL=index.js.map

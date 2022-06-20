@@ -1,26 +1,31 @@
 "use strict";
-// interface constraint
-// interface Person {
-//   name: string
-// }
-// interface Ran<T> {
-//   hi: T
-//   jess: string
-// }
-// function echo<T extends Person>(value: T): Ran<T> {
-//   return { hi: value, jess: 'hi' }
-// }
-/** Constraint by Class */
-class Person {
-    constructor(name) {
-        this.name = name;
+class Store {
+    constructor() {
+        this._objects = [];
+    }
+    add(obj) {
+        this._objects.push(obj);
+    }
+    get objects() {
+        return this._objects;
     }
 }
-class Customer extends Person {
+// let store = new Store<Product>();
+// In this case, we will have array objects with Product shape
+// Pass on the generic type parameter
+class CompressibleStore extends Store {
+    compress() { }
 }
-function echo(value) {
-    console.log(value);
-    return value;
+let newStore = new CompressibleStore();
+newStore.add(5);
+console.log(newStore.objects);
+//Restrict the generic type parameter
+class SearchableStore extends Store {
+    find(name) {
+        return this._objects.find(obj => obj.name === name);
+    }
 }
-echo(new Customer('hihihi'));
+let secondStore = new SearchableStore();
+secondStore.add({ name: 'nihao' });
+console.log(secondStore.find('nihao'));
 //# sourceMappingURL=index.js.map

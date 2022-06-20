@@ -1,10 +1,8 @@
 "use strict";
-class KeyValuePair {
-    constructor(key, value) {
-        this.key = key;
-        this.value = value;
-    }
+var _a;
+function fetch(url) {
+    return { data: null, error: null };
 }
-let pair = new KeyValuePair(1, 'a');
-let other = new KeyValuePair('a', 'b');
+const result = fetch('url');
+(_a = result.data) === null || _a === void 0 ? void 0 : _a.username;
 //# sourceMappingURL=index.js.map

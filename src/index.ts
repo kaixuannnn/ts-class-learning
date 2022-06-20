@@ -1,13 +1,20 @@
-class ArrayUtils {
-  static wrapInArray<T>(value: T) {
-    return [value]
-  }
+interface Result<T> {
+  data: T | null
+  error: string | null
 }
 
-let numbers = ArrayUtils.wrapInArray(1)
-
-function wrapInArray<T>(value: T) {
-  return [value]
+function fetch<T>(url: string): Result<T> {
+  return { data: null, error: null }
 }
 
-const array = wrapInArray<string>('a')
+interface User {
+  username: string
+}
+
+interface Product {
+  title: string
+}
+
+const result = fetch<User>('url')
+
+result.data?.username

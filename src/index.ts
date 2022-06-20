@@ -4,6 +4,20 @@ interface Product {
   price: number
 }
 
+//Type Mapping
+/**1. in is iteration
+ * 2. some utility types in doc
+ * https://www.typescriptlang.org/docs/handbook/utility-types.html
+ */
+type ReadOnly<T> = {
+  readonly [K in keyof T]: T[K]
+}
+
+let product: ReadOnly<Product> = {
+  name: 'a',
+  price: 1
+}
+
 class Store<T> {
   protected _objects: T[] = []
 

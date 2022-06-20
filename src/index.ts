@@ -1,7 +1,13 @@
-class KeyValuePair<K, V> {
-  constructor(public key: K, public value: V) {}
+class ArrayUtils {
+  static wrapInArray<T>(value: T) {
+    return [value]
+  }
 }
 
-let pair = new KeyValuePair(1, 'a')
+let numbers = ArrayUtils.wrapInArray(1)
 
-let other = new KeyValuePair<string, string>('a', 'b')
+function wrapInArray<T>(value: T) {
+  return [value]
+}
+
+const array = wrapInArray<string>('a')
